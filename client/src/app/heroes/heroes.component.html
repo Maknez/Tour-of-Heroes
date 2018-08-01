@@ -2,12 +2,9 @@
 <ul class="heroes">
   <!-- Event binding by using onSelect(hero) method -->
   <!-- Class binding [class.selected] - showing class style only when condition is true -->
-  <li *ngFor="let hero of heroes"
-      [class.selected]="hero === selectedHero"
-      (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
   </li>
 </ul>
-
-<!-- Binding selectedHero property to hero property in HeroDetailComponent -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
