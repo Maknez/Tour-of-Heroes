@@ -22,7 +22,7 @@ public class HeroDAOImpl implements HeroDAO {
         Session session = sessionFactory.getCurrentSession();
 
         // create a query and sort by last name
-        Query<Hero> query = session.createQuery("SELECT FROM heroes ORDER BY name", Hero.class);
+        Query<Hero> query = session.createQuery("FROM Hero ORDER BY name", Hero.class);
 
         // execute query and get result list;
         List<Hero> heroes = query.getResultList();
@@ -44,10 +44,10 @@ public class HeroDAOImpl implements HeroDAO {
         Query query;
 
         if (heroName != null && heroName.trim().length() > 0) {
-            query = session.createQuery("SELECT FROM heroes WHERE LOWER(name) LIKE :heroName", Hero.class);
+            query = session.createQuery("FROM Hero WHERE LOWER(name) LIKE :heroName", Hero.class);
             query.setParameter("heroName", "%" + heroName.toLowerCase() + "%");
         } else {
-            query= session.createQuery("SELECT FROM heroes", Hero.class);
+            query= session.createQuery("FROM Hero", Hero.class);
         }
 
         List<Hero> heroes = query.getResultList();
@@ -67,7 +67,7 @@ public class HeroDAOImpl implements HeroDAO {
     public void deleteHero(int id) {
 
         Session session = sessionFactory.getCurrentSession();
-        Query query = session.createQuery("DELETE FROM heroes WHERE id=:heroId");
+        Query query = session.createQuery("DELETE FROM Hero WHERE id=:heroId");
         query.setParameter("heroId", id);
         query.executeUpdate();
     }

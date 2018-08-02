@@ -8,13 +8,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api")
 public class HeroRestController {
 
     @Autowired
     private HeroService heroService;
 
     @RequestMapping(method = RequestMethod.GET, path = "/heroes")
+    // @GetMapping("/heroes")
     public List<Hero> getHeroes() {
         return heroService.getHeroes();
     }

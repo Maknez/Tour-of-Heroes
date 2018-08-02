@@ -1,0 +1,5 @@
+It is necessary to have database in MySQL named: "rest".
+It is necessary to have table in database "rest" named: "heroes".
+Table "heroes" must have:
+    id, which is not null, auto-increment, primary key integer,
+    name, which is just varchar.
